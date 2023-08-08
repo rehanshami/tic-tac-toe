@@ -1,0 +1,47 @@
+/* basic reset */
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 60rem;
+    height: 100vh;
+    margin: 0 auto;
+}
+.gameboard {
+    position: relative;
+    background-color: aquamarine;
+    border: 2px solid green;
+    width: 100%;
+    padding-top: 100%;
+}
+.squares {
+    position: absolute;
+    background-color: bisque;
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    inset: 0;
+    margin: 1rem;
+}
+.square {
+    position: relative;
+    background-color: blueviolet;
+    border: 2px solid blue;
+    border-radius: 4px;
+    font-size: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.square:hover {
+    cursor: pointer;
+    background-color: rgb(142, 191, 208);
+}
