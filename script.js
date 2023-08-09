@@ -48,7 +48,10 @@ const gameboard = (() => {
             if (gameboard.board[index]==="") {
                 gameboard.board[index] = game.activePlayer.marker;
                 square.textContent = game.activePlayer.marker;
-                
+                game.checkWinner();
+                game.switchPlayer();
+                game.checkTie();
+                console.log(game.activePlayer)
             }
             console.log(gameboard.board[index])
         })
@@ -64,11 +67,57 @@ const game = (() => {
     const player1 = Player('taco', 'X');
     const player2 = Player('many', 'O');
 
-    let activePlayer = player1;
+    let activePlayer = player2;
 
-    
+    const winningAxes = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+
+    ];
+
+
+
+    function checkWinner() {
+        for (let axes of winningAxes) {
+            console.log(axes);
+            const [a, b, c] = axes;
+            if (
+                gameboard.board[a]===activePlayer.marker &&
+                gameboard.board[b]===activePlayer.marker &&
+                gameboard.board[c]===activePlayer.marker
+            ) {
+                console.log(`winner is ${activePlayer.name}`)
+                return;
+            }
+        }
+    }
+
+    function switchPlayer() {
+        if (activePlayer === player1) {
+            activePlayer = player2;
+        } else {
+            activePlayer = player1;
+        }
+    }
+
+    function checkTie() {
+        if(!gameboard.board.includes("")) {
+            console.log("Game is tie");
+            return;
+        }
+    }
 
     return {
-        activePlayer
+        get activePlayer() {return activePlayer},
+        checkWinner,
+        switchPlayer,
+        checkTie
+
     }
 })();
