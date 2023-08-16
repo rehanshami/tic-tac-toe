@@ -39,6 +39,14 @@ const gameboard = (() => {
         squares.appendChild(square);
      })
 
+     const restartButton = document.querySelector('.restart');
+     restartButton.addEventListener('click', () => {
+        restartGame();
+     })
+
+     function restartGame() {
+        gameboard.board.length = 0;
+     }
      Array.from(squares.children).forEach((square, index) =>{
             square.addEventListener('click',() => {
                 if (game.gameOver) {
@@ -102,6 +110,7 @@ const game = (() => {
             event.preventDefault();
             player1 = Player(player1Input.value, 'X');
             player2 = Player(player2Input.value, 'O');
+            
             start();
             console.log({player1, player2});
         })
@@ -164,6 +173,5 @@ const game = (() => {
         start,
         moveInformer,
         subtext
-
     }
 })();

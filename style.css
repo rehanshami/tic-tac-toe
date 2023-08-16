@@ -71,17 +71,59 @@ body {
 form > ul {
     list-style-type: none;
   
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+li {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+label {
+    width: 14rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+li :nth-child(2) {
+    width: 100%;
+    border: 2px solid rebeccapurple;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: inherit;
+}
+
+li :nth-child(2):focus {
+    background-color: #fbeaa0;
+    border: 3px solid rgb(89 1 173);
 }
 
 button {
     padding: 0;
     cursor: pointer;
     width: 12rem;
-    font-size: 1.2rem;
-    height: 2rem;
+    font-size: 1rem;
+    height: 2.2rem;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    background-color: rgb(166, 73, 253);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: rgb(94, 15, 174);
+    color: #FFFFFF;
 }
 
 .subtext {
     margin-bottom: 0.8rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
